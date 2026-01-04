@@ -8,5 +8,5 @@ php artisan cache:clear
 php artisan route:clear
 php artisan view:clear
 
-# Стартувај Laravel сервер
-php artisan serve --host=0.0.0.0 --port=8080
+# Стартувај Laravel сервер (со exec)
+exec php artisan serve --host=0.0.0.0 --port=8080
