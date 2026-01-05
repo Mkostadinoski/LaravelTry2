@@ -12,10 +12,18 @@ class RecipeController extends Controller
         return Recipe::all();
     }
 
-    public function store(Request $request)
-    {
-        return Recipe::create($request->all());
-    }
+   public function store(Request $request)
+{
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'ingredients' => 'required|string',
+        'instructions' => 'required|string',
+        'author' => 'nullable|string|max:255',
+    ]);
+
+    return Recipe::create($validated);
+}
+
 
     public function show($id)
     {
